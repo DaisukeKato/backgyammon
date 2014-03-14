@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<sec:http auto-config="true" access-denied-page="/WEB-INF/views/external/403.jsp">
+		<sec:intercept-url pattern="/WEB-INF/views/internal/**" access="ROLE_USERS"/>
+		<sec:form-login login-page="/login.jsp"
+			authentication-failure-url="/WEB-INF/views/external/loginError.jsp"/>
+	</sec:http>
+	
+	<sec:authentication-manager>
+		<sec:authentication-provider>
+			<sec:user-service>
+				<sec:user name="user1" authorities="ROLE_USERS" password="usr1"/>
+			</sec:user-service>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+</beans>
