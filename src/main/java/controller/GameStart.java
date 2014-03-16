@@ -46,7 +46,7 @@ public class GameStart {
 		
 		model.addAttribute("dice2SvgId", dice2.id);
 		model.addAttribute("dice2SvgWidth", Float.toString(dice2.size[0]));
-		model.addAttribute("dice2SvgWidth", Float.toString(dice2.size[1]));
+		model.addAttribute("dice2SvgHeight", Float.toString(dice2.size[1]));
 		model.addAttribute("dice2SvgContext", dice2.imageObjects);
 		
 		return "internal/gameMain";
