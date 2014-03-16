@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+#whole{
+	height:570px;
+}
+.board{
+	height:570px;
+	position:relative;
+	top:0px;
+}
+.dice{
+	width:100px;
+	height:100px;
+}

@@ -2,7 +2,7 @@ package service;
 
 class BoardParameters {
 	
-	static final float SIZE[] = {570, 550};
+	static final float SIZE[] = {(float)570, (float)550};
 	static final float CENTER_AREA_WIDTH = 50;
 	static final float CENTER_AREA_HEIGHT = 60;
 	

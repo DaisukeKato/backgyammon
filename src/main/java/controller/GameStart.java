@@ -35,15 +35,18 @@ public class GameStart {
 		Canvas dice2 = dice.init();
 		
 		model.addAttribute("boardSvgId", gameBoard.id);
-		model.addAttribute("boardSvgSize", gameBoard.size);
+		model.addAttribute("boardSvgWidth", Float.toString(gameBoard.size[0]));
+		model.addAttribute("boardSvgHeight", Float.toString(gameBoard.size[1]));
 		model.addAttribute("boardSvgContext", gameBoard.imageObjects);
 		
 		model.addAttribute("dice1SvgId", dice1.id);
-		model.addAttribute("dice1SvgSize", dice1.size);
+		model.addAttribute("dice1SvgWidth", Float.toString(dice1.size[0]));
+		model.addAttribute("dice1SvgHeight", Float.toString(dice1.size[1]));
 		model.addAttribute("dice1SvgContext", dice1.imageObjects);
 		
 		model.addAttribute("dice2SvgId", dice2.id);
-		model.addAttribute("dice2SvgSize", dice2.size);
+		model.addAttribute("dice2SvgWidth", Float.toString(dice2.size[0]));
+		model.addAttribute("dice2SvgWidth", Float.toString(dice2.size[1]));
 		model.addAttribute("dice2SvgContext", dice2.imageObjects);
 		
 		return "internal/gameMain";

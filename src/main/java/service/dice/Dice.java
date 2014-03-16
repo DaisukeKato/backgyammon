@@ -5,7 +5,7 @@ import domain.Canvas;
 abstract class Dice {
 	
 	protected static final float SIZE = 100;
-	private static final float GEN_DOT_SIZE = 8;
+	private static final float GEN_DOT_SIZE = (float)9.5; //サイコロの１辺の長さをいくつで割るか
 	private static final float VERTEX_RADIUS = 8;
 	
 	
