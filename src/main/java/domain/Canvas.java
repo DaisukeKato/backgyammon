@@ -89,6 +89,21 @@ public class Canvas {
 		this.imageObjects.add(circleParameters);
 	}
 	
+	public void addCircleWithId(String id, float centerPosition[], float radius, String intColor, String pathColor, float pathWeight){
+		Map<String, String> circleParameters = new HashMap<String, String>();
+		
+		circleParameters.put("type", "circle");
+		circleParameters.put("id", id);
+		circleParameters.put("cx", Float.toString(centerPosition[0]));
+		circleParameters.put("cy", Float.toString(centerPosition[1]));
+		circleParameters.put("r", Float.toString(radius));
+		circleParameters.put("fill", intColor);
+		circleParameters.put("stroke", pathColor);
+		circleParameters.put("stroke-width", Float.toString(pathWeight));
+		
+		this.imageObjects.add(circleParameters);
+	}
+	
 	//角無し正方形の各パラメータからsvgの要素情報を返す
 	public void addWithoutEdgeSquare(float centerPosition[], float size, float vertexRadius, String intColor, String pathColor, float pathWeight) throws IllegalArgumentException{
 		for(int i = 0; i < 2; i++){

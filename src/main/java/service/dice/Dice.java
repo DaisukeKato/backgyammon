@@ -31,7 +31,7 @@ abstract class Dice {
 			float eachDotPosition[] = new float[2];
 			eachDotPosition[0] = dotPositions[i][0];
 			eachDotPosition[1] = dotPositions[i][1];
-			canvas.addCircle(eachDotPosition, dotRadius, "black", "black",(float)0.1);
+			canvas.addCircle( eachDotPosition, dotRadius, "black", "black",(float)0.1);
 		}
 		
 		return canvas;

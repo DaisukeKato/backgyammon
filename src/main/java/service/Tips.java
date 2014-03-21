@@ -35,6 +35,7 @@ public class Tips {
 	
 	private void latticeToSvg(Canvas canvas, TipPositionLattice lattice){
 		float centerPosition[] = new float[2];
+		String tipId;
 		centerPosition[0] = SIZE[0] - eachTriangleWidth / 2;
 		centerPosition[1] = SIZE[1] - tipsRadius;
 		for(short i = 1; i <= 24; i++){
@@ -42,18 +43,21 @@ public class Tips {
 				completeEachLot(i, centerPosition);
 				continue;
 			}
+			short k = 1;
 			for(Iterator<Short> j = lattice.map.get(i).iterator(); j.hasNext();){
 				short tipColor = j.next();
+				tipId = Short.toString(i) + "-" + Short.toString(k);
 				if(tipColor == 1){
-					canvas.addCircle(centerPosition, tipsRadius, color.get("tip1"), color.get("tip1"), 1);
+					canvas.addCircleWithId(tipId, centerPosition, tipsRadius, color.get("tip1"), color.get("tip1"), (float)3.5);
 				}else if(tipColor == 2){
-					canvas.addCircle(centerPosition, tipsRadius, color.get("tip2"), color.get("tip2"), 1);
+					canvas.addCircleWithId(tipId, centerPosition, tipsRadius, color.get("tip2"), color.get("tip2"), (float)3.5);
 				}
 				if(i <= 12){
 					centerPosition[1] -= tipsRadius * 2;
 				}else{
 					centerPosition[1] += tipsRadius * 2;
 				}
+				k++;
 			}
 			completeEachLot(i, centerPosition);
 		}

@@ -11,12 +11,16 @@
 </head>
 <body>
 <div class="whole">
+<div id="main-box">
+<div id="text-part">
 Backgyammonゲームページへようこそ！<br/>
 ログインに成功しました<br/>
 ゲームの対戦形式を選択して下さい<br/>
+</div>
 <form action='<c:url value="int/com/start/"/>' method="post">
 	<input type="submit" value="コンピューターと対戦"/>
 </form>
+</div>
 </div>
 </body>
 </html>
