@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+body{
+	background-color:#90EE90;
+}
+#whole{
+	position:relative;
+	width:760px;
+	height:570px;
+}
+#board{
+	width:580px;
+	height:550px;
+	position:absolute;
+	top:0px;
+	left:100px;
+	margin:0px auto;
+}
+.side-part{
+	width:100px;
+	height:550px;
+	margin:0px;
+}
+#left-part{
+	position:relative;
+	top:0px;
+	left:0px;
+}
+#right-part{
+	position:absolute;
+	top:0px;
+	left:675px;
+}
+.dice{
+	width:100px;
+	height:100px;
+}
+#dice-pl1{
+	position:relative;
+	left:0px;
+	top:0px;
+}
+#dice-pl2{
+	position:relative;
+	left:0px;
+	top:0px;
+}
+.space{
+	width:100px;
+	height:440px;
+}
+#left-side-space{
+	position:relative;
+	top:0px;
+}
+#right-side-space{
+	position:relative;
+	top:0px;
+}

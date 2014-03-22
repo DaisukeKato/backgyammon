@@ -89,6 +89,21 @@ public class Canvas {
 		this.imageObjects.add(circleParameters);
 	}
 	
+	public void addCircleWithId(String id, float centerPosition[], float radius, String intColor, String pathColor, float pathWeight){
+		Map<String, String> circleParameters = new HashMap<String, String>();
+		
+		circleParameters.put("type", "circle");
+		circleParameters.put("id", id);
+		circleParameters.put("cx", Float.toString(centerPosition[0]));
+		circleParameters.put("cy", Float.toString(centerPosition[1]));
+		circleParameters.put("r", Float.toString(radius));
+		circleParameters.put("fill", intColor);
+		circleParameters.put("stroke", pathColor);
+		circleParameters.put("stroke-width", Float.toString(pathWeight));
+		
+		this.imageObjects.add(circleParameters);
+	}
+	
 	//角無し正方形の各パラメータからsvgの要素情報を返す
 	public void addWithoutEdgeSquare(float centerPosition[], float size, float vertexRadius, String intColor, String pathColor, float pathWeight) throws IllegalArgumentException{
 		for(int i = 0; i < 2; i++){
@@ -108,29 +123,29 @@ public class Canvas {
 		float rightLineTop[] = new float[2];
 		float rightLineBottom[] = new float[2];
 		
-		upperLineLeftEdge[0] = centerPosition[0] - size + vertexRadius;
-		upperLineLeftEdge[1] = centerPosition[1] - size;
+		upperLineLeftEdge[0] = centerPosition[0] - size / 2 + vertexRadius;
+		upperLineLeftEdge[1] = centerPosition[1] - size / 2;
 		
-		upperLineRightEdge[0] = centerPosition[0] + size - vertexRadius;
-		upperLineRightEdge[1] = centerPosition[1] - size;
+		upperLineRightEdge[0] = centerPosition[0] + size / 2 - vertexRadius;
+		upperLineRightEdge[1] = centerPosition[1] - size / 2;
 		
-		underLineLeftEdge[0] = centerPosition[0] - size + vertexRadius;
-		underLineLeftEdge[1] = centerPosition[1] + size;
+		underLineLeftEdge[0] = centerPosition[0] - size / 2 + vertexRadius;
+		underLineLeftEdge[1] = centerPosition[1] + size / 2;
 		
-		underLineRightEdge[0] = centerPosition[0] + size - vertexRadius;
-		underLineRightEdge[1] = centerPosition[1] + size;
+		underLineRightEdge[0] = centerPosition[0] + size / 2 - vertexRadius;
+		underLineRightEdge[1] = centerPosition[1] + size / 2;
 		
-		leftLineTop[0] = centerPosition[0] - size;
-		leftLineTop[1] = centerPosition[1] - size + vertexRadius;
+		leftLineTop[0] = centerPosition[0] - size / 2;
+		leftLineTop[1] = centerPosition[1] - size / 2 + vertexRadius;
 		
-		leftLineBottom[0] = centerPosition[0] - size;
-		leftLineBottom[1] = centerPosition[1] + size - vertexRadius;
+		leftLineBottom[0] = centerPosition[0] - size / 2;
+		leftLineBottom[1] = centerPosition[1] + size / 2 - vertexRadius;
 		
-		rightLineTop[0] = centerPosition[0] + size;
-		rightLineTop[1] = centerPosition[1] - size + vertexRadius;
+		rightLineTop[0] = centerPosition[0] + size / 2;
+		rightLineTop[1] = centerPosition[1] - size / 2 + vertexRadius;
 		
-		leftLineBottom[0] = centerPosition[0] - size;
-		leftLineBottom[1] = centerPosition[1] + size - vertexRadius;
+		rightLineBottom[0] = centerPosition[0] + size / 2;
+		rightLineBottom[1] = centerPosition[1] + size / 2 - vertexRadius;
 		
 		Map<String, String> squareParameters = new HashMap<String, String>();
 		
@@ -141,15 +156,17 @@ public class Canvas {
 		squareParameters.put("stroke-width", Float.toString(pathWeight));
 		
 		StringBuffer dValue = new StringBuffer();
-		dValue.append("M " + Float.toString(upperLineLeftEdge[0]) + " " + Float.toString(upperLineLeftEdge[1]) + " ");
+		dValue.append("M " + Float.toString(leftLineTop[0]) + " " + Float.toString(leftLineTop[1]) + " ");
+		dValue.append("A" + Float.toString(vertexRadius) + " " + Float.toString(vertexRadius) + " " + "0 0 1 ");
+		dValue.append(Float.toString(upperLineLeftEdge[0]) + " " + Float.toString(upperLineLeftEdge[1]) + " ");
 		dValue.append("H " + Float.toString(upperLineRightEdge[0]) + " ");
-		dValue.append("A " + Float.toString(vertexRadius) + " " + Float.toString(vertexRadius) + " 0 0 0 ");
+		dValue.append("A " + Float.toString(vertexRadius) + " " + Float.toString(vertexRadius) + " 0 0 1 ");
 		dValue.append(Float.toString(rightLineTop[0]) + " "+ Float.toString(rightLineTop[1]) + " ");
 		dValue.append("V" + Float.toString(rightLineBottom[1]) + " ");
-		dValue.append("A " + Float.toString(vertexRadius) + " " + Float.toString(vertexRadius) + " 0 0 0 ");
+		dValue.append("A " + Float.toString(vertexRadius) + " " + Float.toString(vertexRadius) + " 0 0 1 ");
 		dValue.append(Float.toString(underLineRightEdge[0]) + " " + Float.toString(underLineRightEdge[1]) + " ");
 		dValue.append("H " + Float.toString(underLineLeftEdge[0]) + " ");
-		dValue.append("A " + Float.toString(vertexRadius) + " " + Float.toString(vertexRadius) + " 0 0 0 ");
+		dValue.append("A " + Float.toString(vertexRadius) + " " + Float.toString(vertexRadius) + " 0 0 1 ");
 		dValue.append(Float.toString(leftLineBottom[0]) + " " + Float.toString(leftLineBottom[1]) + " Z");
 		
 		squareParameters.put("d", dValue.toString());

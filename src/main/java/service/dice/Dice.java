@@ -5,7 +5,7 @@ import domain.Canvas;
 abstract class Dice {
 	
 	protected static final float SIZE = 100;
-	private static final float GEN_DOT_SIZE = 8;
+	private static final float GEN_DOT_SIZE = (float)9.5; //サイコロの１辺の長さをいくつで割るか
 	private static final float VERTEX_RADIUS = 8;
 	
 	
@@ -31,7 +31,7 @@ abstract class Dice {
 			float eachDotPosition[] = new float[2];
 			eachDotPosition[0] = dotPositions[i][0];
 			eachDotPosition[1] = dotPositions[i][1];
-			canvas.addCircle(eachDotPosition, dotRadius, "black", "black",(float)0.1);
+			canvas.addCircle( eachDotPosition, dotRadius, "black", "black",(float)0.1);
 		}
 		
 		return canvas;

@@ -12,8 +12,8 @@ public class DiceThree extends Dice implements DiceEach {
 		float dotPositions[][] = new float[3][2];
 		
 		for(int i = 1; i <= 3; i++){
-			dotPositions[i][0] = SIZE - diceToDiceDistance * i;
-			dotPositions[i][1] = diceToDiceDistance * i;
+			dotPositions[i - 1][0] = SIZE - diceToDiceDistance * i;
+			dotPositions[i - 1][1] = diceToDiceDistance * i;
 		}
 		
 		return setSvgXml(dotPositions, canvas);

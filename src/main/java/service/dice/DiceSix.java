@@ -19,6 +19,7 @@ public class DiceSix extends Dice implements DiceEach {
 			dotPositions[i][1] =  curDotPosY;
 			if(i == 2){
 				curDotPosX += xDotToDotSpace;
+				curDotPosY = yDotToDotSpace;
 			}else{
 				curDotPosY += yDotToDotSpace;
 			}
